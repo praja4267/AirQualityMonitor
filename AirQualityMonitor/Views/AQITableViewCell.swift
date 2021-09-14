@@ -55,7 +55,6 @@ class AQITableViewCell: UITableViewCell {
         default:
             color = UIColor.darkred
         }
-        print("**-** cell current index = \(Int(floor(index))), actual index = \(index)")
         return (color, width < maxWidth - 10 ? width : maxWidth)
     }
 }

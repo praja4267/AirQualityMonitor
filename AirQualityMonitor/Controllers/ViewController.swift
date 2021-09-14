@@ -115,23 +115,17 @@ extension ViewController:  WebSocketConnectionDelegate {
     }
     
     func onMessage(connection: WebSocketConnection, text: String) {
-        print("Text message: \(text)")
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-        //            self.webSocketConnection.send(text: "ping")
-        //        }
         guard let data =  text.data(using: .utf8) else { return }
         do {
             let info = try JSONDecoder().decode([AQIModel].self, from: data)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.updateList(list: info)
             }
-        }catch let error {
-            print(error)
-        }
+        }catch _ { }
     }
     
     func onMessage(connection: WebSocketConnection, data: Data) {
-        print("Data message: \(data)")
+//        print("Data message: \(data)")
     }
     
 }

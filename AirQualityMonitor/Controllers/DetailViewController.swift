@@ -7,6 +7,16 @@
 
 import UIKit
 
+
+enum AirQuality: String {
+    case good = "Good"
+    case satisfactory = "Satisfactory"
+    case moderate = "Moderate"
+    case poor = "Poor"
+    case veryPoor = "Very Poor"
+    case severe = "Severe"
+}
+
 class DetailViewController: UIViewController {
     var radius : CGFloat {
         return self.view.frame.size.width - 20
@@ -22,6 +32,8 @@ class DetailViewController: UIViewController {
     }
     
     @IBOutlet weak var progressView: MKMagneticProgress!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var aqiGuideView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +41,7 @@ class DetailViewController: UIViewController {
         addCircleparts()
         progressView.backgroundColor = .clear
         progressView.spaceDegree = CGFloat(90.0)
-        progressView.lineWidth = 10
+        progressView.lineWidth = 15
         updateProgressView()
         // Do any additional setup after loading the view.
     }
@@ -37,6 +49,8 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.bringSubviewToFront(progressView)
+        self.view.bringSubviewToFront(infoLabel)
+        self.view.bringSubviewToFront(aqiGuideView)
     }
     func addCircleparts() {
         let part1 = CirclePart(startAngle: 0, endAngle: 30, color: .greenWithAlpha)
@@ -45,8 +59,10 @@ class DetailViewController: UIViewController {
         let part4 = CirclePart(startAngle: 90, endAngle: 120, color: .orangeWithAlpha)
         let part5 = CirclePart(startAngle: 120, endAngle: 150, color: .redWithAlpha)
         let part6 = CirclePart(startAngle: 150, endAngle: 180, color: .brownWithAlpha)
-        
-        let rect = CGRect(x: 10, y: 100, width: view.frame.width - 20, height: view.frame.width - 20)
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        let navBarHeight = self.navigationController?.navigationBar.bounds.size.height ?? 0;
+        let rect = CGRect(x: 10, y: statusBarHeight+navBarHeight + 10, width: view.frame.width - 20, height: view.frame.width - 20)
         let center = CGPoint(x: rect.size.width/2, y: rect.size.height/2)
         if circle != nil {
             circle?.removeFromSuperview()
@@ -64,28 +80,26 @@ class DetailViewController: UIViewController {
     
     func getColorForCurrentAQI(index: Double) -> (UIColor, String) {
         var color: UIColor
-        var description = ""
+        var airQuality: AirQuality
         
         switch index {
         case 0.00..<2.00: color = UIColor.darkgreen
-            description = "Good"
+            airQuality = .good
         case 2.00..<3.00: color = UIColor.darkgreenWithAlpha
-            description = "Satisfactory"
+            airQuality = .satisfactory
         case 3.00..<4.00: color = UIColor.darkyellow
-            description = "Moderate"
+            airQuality = .moderate
         case 4.00..<5.00: color = UIColor.orange
-            description = "Poor"
+            airQuality = .poor
         case 5.00..<6.00: color = UIColor.red
-            description = "Very Poor"
+            airQuality = .veryPoor
         default:
             color = UIColor.darkred
-            description = "Severe"
+            airQuality = .severe
         }
-        print("current index = \(Int(floor(index))), actual index = \(index), color  \(color)")
-        return (color, description)
+        return (color, airQuality.rawValue)
     }
     func getProgressValue(currrentIndex: Double) -> Double {
-        print(" ***-***Current Index = \(currrentIndex), updatedprogress = \(currrentIndex/6.0)")
         return (currrentIndex - 1.00)/6.0
     }
     func updateProgressView() {
@@ -94,7 +108,8 @@ class DetailViewController: UIViewController {
         progressView?.progressShapeColor = color
         let progressVal = getProgressValue(currrentIndex: index)
         progressView?.setProgress(progress: CGFloat(progressVal), animated: true)
-        progressView?.title = "\(model?.aqi ?? 0) \n\(desc)"
+        infoLabel?.text = "\(model?.aqi ?? 0) \n\(desc)"
+        infoLabel?.textColor = color
     }
 }
 

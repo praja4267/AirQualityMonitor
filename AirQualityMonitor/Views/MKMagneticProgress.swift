@@ -125,7 +125,7 @@ open class MKMagneticProgress: UIView {
     
     
     // progress text (progress bottom label)
-    @IBInspectable  open var font: UIFont = .systemFont(ofSize: 13) {
+    @IBInspectable  open var font: UIFont = .boldSystemFont(ofSize: 20) {
         didSet {
             titleLabel.font = font
             percentLabel.font = font
@@ -210,7 +210,7 @@ open class MKMagneticProgress: UIView {
         
         //textLabel.adjustFontSizeToFit()
         titleLabel.adjustsFontSizeToFitWidth = true
-        self.addSubview(titleLabel)
+//        self.addSubview(titleLabel)
     }
     
     // MARK: - Progress Animation
@@ -256,7 +256,6 @@ open class MKMagneticProgress: UIView {
         progressShape.path   = pathForShape(rect: rect).cgPath
         
         self.titleLabel.frame = self.bounds
-        
         updateShapes()
         
         percentLabel.frame = self.bounds
@@ -314,7 +313,8 @@ open class MKMagneticProgress: UIView {
         
         if clockwise{
             startAngle = CGFloat(spaceDegree * .pi / 180.0) + (0.5 * .pi)
-            endAngle = CGFloat((360.0 - spaceDegree) * (.pi / 180.0)) + (0.5 * .pi)
+            endAngle = CGFloat((360 - spaceDegree) * (.pi / 180.0)) + (0.5 * .pi)
+            
         }else{
             startAngle = CGFloat((360.0 - spaceDegree) * (.pi / 180.0)) + (0.5 * .pi)
             endAngle = CGFloat(spaceDegree * .pi / 180.0) + (0.5 * .pi)

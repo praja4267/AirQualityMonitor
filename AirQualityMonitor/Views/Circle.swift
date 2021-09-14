@@ -41,12 +41,11 @@ class Circle: UIView {
 
         guard let context = UIGraphicsGetCurrentContext() else { return }
         context.setLineWidth(lineWidth)
-
         for part in circleParts {
             context.move(to: centrePoint)
             let startAngle = part.startAngle.toRadians + CGFloat(Double.pi)
             let endAngle =  part.endAngle.toRadians + CGFloat(Double.pi)
-            print("startAngle = \(startAngle), endAngle = \(endAngle)")
+            
             context.addArc(center: centrePoint, radius: radius, startAngle:startAngle , endAngle: endAngle, clockwise: false)
             context.setFillColor(part.color.cgColor)
             context.fillPath()
@@ -54,7 +53,6 @@ class Circle: UIView {
         context.addArc(center: centrePoint, radius: radius - 20, startAngle: 0, endAngle: 180, clockwise: false)
         context.setFillColor(UIColor.white.cgColor)
         context.fillPath()
-        context.setLineCap(.round)
     }
 
 }

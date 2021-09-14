@@ -17,7 +17,6 @@
 		843F1FE826EFBF6E00730046 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F1FE726EFBF6E00730046 /* DetailViewController.swift */; };
 		843F1FEC26EFBFDE00730046 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F1FEB26EFBFDE00730046 /* Extensions.swift */; };
 		843F1FEF26EFBFF800730046 /* AQIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F1FEE26EFBFF800730046 /* AQIModel.swift */; };
-		843F1FF226EFC03F00730046 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F1FF126EFC03F00730046 /* Arrow.swift */; };
 		843F1FF526EFC08500730046 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F1FF426EFC08500730046 /* Circle.swift */; };
 		843F200026F0606500730046 /* MKMagneticProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F1FFF26F0606500730046 /* MKMagneticProgress.swift */; };
 		843F200426F060F000730046 /* AQITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843F200226F060F000730046 /* AQITableViewCell.swift */; };
@@ -38,7 +37,6 @@
 		843F1FE726EFBF6E00730046 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		843F1FEB26EFBFDE00730046 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		843F1FEE26EFBFF800730046 /* AQIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIModel.swift; sourceTree = "<group>"; };
-		843F1FF126EFC03F00730046 /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		843F1FF426EFC08500730046 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		843F1FFF26F0606500730046 /* MKMagneticProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMagneticProgress.swift; sourceTree = "<group>"; };
 		843F200226F060F000730046 /* AQITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AQITableViewCell.swift; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		843F1FE126EFBE7000730046 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				843F1FF126EFC03F00730046 /* Arrow.swift */,
 				843F1FF426EFC08500730046 /* Circle.swift */,
 				843F1FFF26F0606500730046 /* MKMagneticProgress.swift */,
 				843F200226F060F000730046 /* AQITableViewCell.swift */,
@@ -211,7 +208,6 @@
 				843F200426F060F000730046 /* AQITableViewCell.swift in Sources */,
 				843F1FD026EFBE2900730046 /* ViewController.swift in Sources */,
 				843F200826F0993D00730046 /* Reachability.swift in Sources */,
-				843F1FF226EFC03F00730046 /* Arrow.swift in Sources */,
 				843F1FF526EFC08500730046 /* Circle.swift in Sources */,
 				843F1FEC26EFBFDE00730046 /* Extensions.swift in Sources */,
 				843F1FEF26EFBFF800730046 /* AQIModel.swift in Sources */,
@@ -369,6 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5B4376PT4P;
 				INFOPLIST_FILE = AirQualityMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,6 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5B4376PT4P;
 				INFOPLIST_FILE = AirQualityMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
