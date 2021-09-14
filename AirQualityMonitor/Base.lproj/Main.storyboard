@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tw8-2x-Os5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AirQualityMonitor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mrr-x2-t1l">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mrr-x2-t1l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9EA-Wa-04p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mrr-x2-t1l" secondAttribute="bottom" id="PuP-dO-TFc"/>
+                            <constraint firstItem="Mrr-x2-t1l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gHj-dp-dK3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mrr-x2-t1l" secondAttribute="trailing" id="ofp-yg-B5E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vU7-Rb-q4r"/>
+                    <connections>
+                        <outlet property="aqiTableView" destination="Mrr-x2-t1l" id="NfG-Cj-TFw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.7971014492755" y="88.392857142857139"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="vvL-Mp-pPd">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6W3-5L-7D2" customClass="DetailViewController" customModule="AirQualityMonitor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ICL-bt-46h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TX9-H7-D7w" customClass="MKMagneticProgress" customModule="AirQualityMonitor" customModuleProvider="target">
+                                <rect key="frame" x="20" y="59" width="374" height="374"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="TX9-H7-D7w" secondAttribute="height" multiplier="1:1" id="NRH-dN-mdM"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AQI" translatesAutoresizingMaskIntoConstraints="NO" id="hUU-Ym-AEe">
+                                <rect key="frame" x="20" y="453" width="374" height="309"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZaJ-oo-PcC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TX9-H7-D7w" firstAttribute="top" secondItem="ZaJ-oo-PcC" secondAttribute="top" constant="15" id="14Z-mX-fsR"/>
+                            <constraint firstItem="hUU-Ym-AEe" firstAttribute="top" secondItem="TX9-H7-D7w" secondAttribute="bottom" constant="20" id="BtR-cQ-6vO"/>
+                            <constraint firstItem="hUU-Ym-AEe" firstAttribute="trailing" secondItem="TX9-H7-D7w" secondAttribute="trailing" id="JdW-b9-afx"/>
+                            <constraint firstItem="TX9-H7-D7w" firstAttribute="width" secondItem="ICL-bt-46h" secondAttribute="width" constant="-40" id="Lx4-jC-tTH"/>
+                            <constraint firstItem="ZaJ-oo-PcC" firstAttribute="bottom" secondItem="hUU-Ym-AEe" secondAttribute="bottom" constant="100" id="Rqj-Qj-hNx"/>
+                            <constraint firstItem="TX9-H7-D7w" firstAttribute="centerX" secondItem="ZaJ-oo-PcC" secondAttribute="centerX" id="UsK-Ov-J3x"/>
+                            <constraint firstItem="hUU-Ym-AEe" firstAttribute="leading" secondItem="TX9-H7-D7w" secondAttribute="leading" id="wwC-Fs-l0O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="TX9-H7-D7w" id="zzx-Vc-o7z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JMx-fX-Ehu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740.5797101449277" y="100.44642857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yyx-Pp-x2W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tw8-2x-Os5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DYq-Mp-5i8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="t7N-sM-jei"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QB6-71-cIC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95.652173913043484" y="88.392857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AQI" width="1638" height="1180"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

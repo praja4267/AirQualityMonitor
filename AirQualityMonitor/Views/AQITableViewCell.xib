@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="KGk-i7-Jjw" customClass="AQITableViewCell" customModule="AirQualityMonitor" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="440" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="440" height="58"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aL-xq-7Rk">
+                        <rect key="frame" x="4" y="14" width="130" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="1gg-i4-D9r"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updated few seconds ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CuW-CA-WXu">
+                        <rect key="frame" x="4" y="32" width="128.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" systemColor="systemGray2Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="555.55" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pf-OV-tBf">
+                        <rect key="frame" x="370.5" y="16" width="45" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="3qe-TJ-l8Z"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8W2-he-h5G">
+                        <rect key="frame" x="136.5" y="18" width="230" height="20"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vP1-Yu-BJi">
+                                <rect key="frame" x="8" y="6" width="214" height="8"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vP1-Yu-BJi" firstAttribute="top" secondItem="8W2-he-h5G" secondAttribute="top" constant="6" id="NWY-Gb-adY"/>
+                            <constraint firstAttribute="width" constant="230" id="bk5-HN-zbg"/>
+                            <constraint firstAttribute="trailing" secondItem="vP1-Yu-BJi" secondAttribute="trailing" constant="8" id="dV3-GA-8d1"/>
+                            <constraint firstAttribute="bottom" secondItem="vP1-Yu-BJi" secondAttribute="bottom" constant="6" id="rf7-IN-4o1"/>
+                            <constraint firstItem="vP1-Yu-BJi" firstAttribute="leading" secondItem="8W2-he-h5G" secondAttribute="leading" constant="8" id="vxy-8E-KlC"/>
+                            <constraint firstAttribute="height" constant="20" id="y9d-0b-Z7F"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9pf-OV-tBf" firstAttribute="leading" secondItem="8W2-he-h5G" secondAttribute="trailing" constant="4" id="24x-S0-fuu"/>
+                    <constraint firstAttribute="bottom" secondItem="8W2-he-h5G" secondAttribute="bottom" constant="18" id="B9q-Vf-X4B"/>
+                    <constraint firstItem="CuW-CA-WXu" firstAttribute="width" secondItem="6aL-xq-7Rk" secondAttribute="width" multiplier="0.986667" id="QHV-IJ-e6w"/>
+                    <constraint firstItem="9pf-OV-tBf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="U3E-Iy-y1b"/>
+                    <constraint firstItem="CuW-CA-WXu" firstAttribute="top" secondItem="6aL-xq-7Rk" secondAttribute="bottom" constant="2" id="V9q-vp-0L6"/>
+                    <constraint firstAttribute="bottom" secondItem="CuW-CA-WXu" secondAttribute="bottom" constant="4" id="axo-m3-o5u"/>
+                    <constraint firstItem="8W2-he-h5G" firstAttribute="leading" secondItem="CuW-CA-WXu" secondAttribute="trailing" constant="4" id="c2D-YL-qEa"/>
+                    <constraint firstItem="6aL-xq-7Rk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="idi-xK-xqS"/>
+                    <constraint firstItem="6aL-xq-7Rk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="kAt-qe-tCv"/>
+                    <constraint firstItem="CuW-CA-WXu" firstAttribute="leading" secondItem="6aL-xq-7Rk" secondAttribute="leading" id="t2U-9J-N1O"/>
+                    <constraint firstItem="8W2-he-h5G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="tfU-6p-OA1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="aqiProgressView" destination="vP1-Yu-BJi" id="oZo-UY-eeK"/>
+                <outlet property="aqiValueLabel" destination="9pf-OV-tBf" id="B6D-dB-iFn"/>
+                <outlet property="cityNameLabel" destination="6aL-xq-7Rk" id="Igd-fZ-PM0"/>
+                <outlet property="indexView" destination="8W2-he-h5G" id="8SY-5g-S9J"/>
+                <outlet property="indexViewWidthConstraint" destination="bk5-HN-zbg" id="BIZ-is-m4N"/>
+                <outlet property="updatedTimeLabel" destination="CuW-CA-WXu" id="SHJ-f8-B3s"/>
+            </connections>
+            <point key="canvasLocation" x="6" y="60"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
