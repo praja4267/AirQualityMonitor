@@ -6,12 +6,14 @@ This application has 2 Pages
 
 ### Features
 ##### _First Screen_
-
+![Cities list with Air Quality Indices](https://github.com/praja4267/AirQualityMonitor/blob/main/1.CitiesListWithAQI.png)
  - The first screen shows the actual Air Quality Index of each city in Alphabetical order .
  - The colors of the progress bar indicates the severity of the AQI. 
  - The List of cities is shown in a dynamically increasing scroll view so that if we get info of more number of cities form server it will be added to the list and can be seen by scrollin up/down based on the name of the city. 
  - Below the name of city the last updated time is shown like few seconds , hours, days ago to indicate whether the data shown is latest or not.
 ##### _Second Screen_
+![Detailed Screen -City with good AQI](https://github.com/praja4267/AirQualityMonitor/blob/main/2.CityWithGoodAQI.png)
+![Detailed Screen -City with very poor AQI](https://github.com/praja4267/AirQualityMonitor/blob/main/3.CityWithPoorAQI.png)
 - The second screen has a circular progress view whose parts are filled with different colors based on the severity. 
 - Based on the different colors we can compare the severity of AQI. 
 - It also displays the actual AQI of selected city and the description of the AQI based on the AQI guide lines given by Central Pollution Control Board.
