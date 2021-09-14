@@ -16,9 +16,11 @@ struct AQIModel: Decodable {
         self.aqi = aqi
         self.time = time
     }
+    
     enum CodingKeys: String, CodingKey {
         case city, aqi
     }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         city = try container.decode(String.self, forKey: .city)

@@ -19,16 +19,22 @@ class ViewController: UIViewController {
     }
     var detailViewController: DetailViewController?
     var refreshButton : UIBarButtonItem!
+    struct Constants {
+        static let websocketURL = "ws://city-ws.herokuapp.com/"
+        static let pageTitle = "Air Quality Index"
+        static let refresh = "Refresh"
+        static let noInternetTitle = "No Internet Conection"
+        static let noInternetMessage = "Please check your internet coneection and try again"
+        static let tableViewCellIdentifier = "AQITableViewCell"
+        static let detailVC = "DetailViewController"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Air Quality Index"
-        refreshButton = UIBarButtonItem(title: "Refresh", style: .done, target: self, action: #selector(refresh))
+        self.title = Constants.pageTitle
+        refreshButton = UIBarButtonItem(title:Constants.refresh , style: .done, target: self, action: #selector(refresh))
         checkNetworkStatusAndEstablishWSConnection()
         setUpTableView()
-        // Do any additional setup after loading the view.
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     func updateList(list: [AQIModel]) {
@@ -42,15 +48,6 @@ class ViewController: UIViewController {
             totalEntries[model.city] = model
         }
         titles = totalEntries.keys.sorted()
-    }
-    
-    func updateModelOfDetailPage(list: [AQIModel]) {
-        if detailViewController != nil && self.navigationController?.viewControllers.count ?? 1 > 1 {
-            let filteredList = list.filter{$0.city == detailViewController?.model?.city}
-            if let model =  filteredList.first{
-                detailViewController?.model = model
-            }
-        }
     }
     
     func checkNetworkStatusAndEstablishWSConnection() {
@@ -73,7 +70,7 @@ class ViewController: UIViewController {
     }
     
     func showNoInternetUI() {
-        self.showAlert(title: "No Internet Conection", message: "Please check your internet coneection and try again")
+        self.showAlert(title:Constants.noInternetTitle , message: Constants.noInternetMessage)
         self.navigationController?.navigationBar.barTintColor = UIColor.red
         self.navigationItem.rightBarButtonItem  = refreshButton
     }
@@ -85,14 +82,21 @@ class ViewController: UIViewController {
             showNoInternetUI()
         }
     }
-    
+    // MARK: Update detail page model
+    func updateModelOfDetailPage(list: [AQIModel]) {
+        if detailViewController != nil && self.navigationController?.viewControllers.count ?? 1 > 1 {
+            let filteredList = list.filter{$0.city == detailViewController?.model?.city}
+            if let model =  filteredList.first{
+                detailViewController?.model = model
+            }
+        }
+    }
 }
 
-
-
+// MARK: Websocket connection related code
 extension ViewController:  WebSocketConnectionDelegate {
     func setupWebsocket() {
-        webSocketConnection = WebSocketTaskConnection(url: URL(string: "ws://city-ws.herokuapp.com/")!)
+        webSocketConnection = WebSocketTaskConnection(url: URL(string: Constants.websocketURL)!)
         webSocketConnection.delegate = self
         webSocketConnection.connect()
         webSocketConnection.send(text: "ping")
@@ -130,7 +134,7 @@ extension ViewController:  WebSocketConnectionDelegate {
     
 }
 
-
+// MARK: TableView realted code
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func setUpTableView() {
@@ -138,7 +142,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         aqiTableView.dataSource = self
         aqiTableView.delegate = self
         aqiTableView.separatorStyle = .none
-        aqiTableView.register(UINib(nibName: "AQITableViewCell", bundle: nil), forCellReuseIdentifier: "AQITableViewCell")
+        aqiTableView.register(UINib(nibName:Constants.tableViewCellIdentifier , bundle: nil), forCellReuseIdentifier: Constants.tableViewCellIdentifier)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,8 +150,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AQITableViewCell", for: indexPath) as? AQITableViewCell else { return UITableViewCell() }
-        cell.updateUi(with: totalEntries[titles[indexPath.row]])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tableViewCellIdentifier, for: indexPath) as? AQITableViewCell else { return UITableViewCell() }
+        cell.updateUI(with: totalEntries[titles[indexPath.row]])
         return cell
     }
     
@@ -156,7 +160,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+        guard let controller = self.storyboard?.instantiateViewController(withIdentifier: Constants.detailVC) as? DetailViewController else {
             return
         }
         detailViewController = controller

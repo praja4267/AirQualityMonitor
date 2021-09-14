@@ -35,14 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func updateConnectionStatus()  {
-        
         do {
             try reachability.startNotifier()
         } catch {
             print("Unable to start notifier")
         }
-        
-        
     }
 
 }

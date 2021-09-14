@@ -21,7 +21,7 @@ class Circle: UIView {
     var circleParts = [CirclePart]()
     var arrow = UIBezierPath().cgPath
     let arrowLayer = CAShapeLayer()
-    init(frame: CGRect, center: CGPoint, radius: CGFloat, lineWidth: CGFloat, circleParts: [CirclePart]) {
+    init(frame: CGRect, center: CGPoint, radius: CGFloat, lineWidth: CGFloat, circleParts: [CirclePart] = Circle.getCircleParts()) {
         self.centrePoint = center
         self.radius = radius
         self.lineWidth = lineWidth
@@ -32,13 +32,22 @@ class Circle: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func draw(_ rect: CGRect) {
         drawCircle()
     }
-
+    
+    static func getCircleParts() -> [CirclePart] {
+        let part1 = CirclePart(startAngle: -3, endAngle: 32, color: .greenWithAlpha)
+        let part2 = CirclePart(startAngle: 32, endAngle: 62, color: UIColor.green.withAlphaComponent(0.3))
+        let part3 = CirclePart(startAngle: 62, endAngle: 92, color: .yellowWithAlpha)
+        let part4 = CirclePart(startAngle: 92, endAngle: 122, color: .orangeWithAlpha)
+        let part5 = CirclePart(startAngle: 122, endAngle: 152, color: .redWithAlpha)
+        let part6 = CirclePart(startAngle: 152, endAngle: 182, color: .darkred)
+        return [part1, part2, part3, part4, part5, part6]
+    }
    
     func drawCircle() {
-
         guard let context = UIGraphicsGetCurrentContext() else { return }
         context.setLineWidth(lineWidth)
         for part in circleParts {
@@ -54,6 +63,5 @@ class Circle: UIView {
         context.setFillColor(UIColor.white.cgColor)
         context.fillPath()
     }
-
 }
 

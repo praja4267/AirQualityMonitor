@@ -19,11 +19,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aL-xq-7Rk">
-                        <rect key="frame" x="4" y="14" width="130" height="16"/>
+                        <rect key="frame" x="4" y="12" width="130" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="130" id="1gg-i4-D9r"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -68,7 +68,7 @@
                     <constraint firstItem="CuW-CA-WXu" firstAttribute="top" secondItem="6aL-xq-7Rk" secondAttribute="bottom" constant="2" id="V9q-vp-0L6"/>
                     <constraint firstAttribute="bottom" secondItem="CuW-CA-WXu" secondAttribute="bottom" constant="14" id="axo-m3-o5u"/>
                     <constraint firstItem="8W2-he-h5G" firstAttribute="leading" secondItem="CuW-CA-WXu" secondAttribute="trailing" constant="4" id="c2D-YL-qEa"/>
-                    <constraint firstItem="6aL-xq-7Rk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="idi-xK-xqS"/>
+                    <constraint firstItem="6aL-xq-7Rk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="idi-xK-xqS"/>
                     <constraint firstItem="6aL-xq-7Rk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="kAt-qe-tCv"/>
                     <constraint firstItem="CuW-CA-WXu" firstAttribute="leading" secondItem="6aL-xq-7Rk" secondAttribute="leading" id="t2U-9J-N1O"/>
                     <constraint firstItem="8W2-he-h5G" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="tfU-6p-OA1"/>

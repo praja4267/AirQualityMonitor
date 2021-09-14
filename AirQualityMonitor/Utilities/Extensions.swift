@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
+// MARK: Double value Extensions
 extension Double {
     var roundTo2f: Double {
         return Double((100 * self).rounded()/100)
     }
-}
-extension Double {
     var toRadians: CGFloat {
         return CGFloat(self) * CGFloat(Double.pi) / 180.0
     }
 }
 
+// MARK: Custom Colors
 extension UIColor {
     static let greenWithAlpha = UIColor(red: 0, green: 106.color, blue: 0, alpha: 0.5)
     static let yellowWithAlpha = UIColor(red: 255.color, green: 255.color, blue: 191.color, alpha: 1.0)
@@ -31,6 +31,7 @@ extension UIColor {
     static let darkyellow = UIColor(red: 222.color, green: 194.color, blue: 11.color, alpha: 1)
 }
 
+// MARK: Double value Extensions
 extension Int {
     var color: CGFloat {
         return CGFloat(Double(self)/255.0)
@@ -38,6 +39,7 @@ extension Int {
     
 }
 
+// MARK: ViewController Extensions
 extension UIViewController {
     var appDelegate: AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate

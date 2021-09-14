@@ -15,7 +15,6 @@ class AQITableViewCell: UITableViewCell {
     @IBOutlet weak var indexViewWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var aqiProgressView: UIProgressView!
-    
     var maxWidth: CGFloat!
     
     override func awakeFromNib() {
@@ -29,11 +28,12 @@ class AQITableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func updateUi(with model: AQIModel?) {
+    
+    func updateUI(with model: AQIModel?) {
         guard let model = model else { return }
         cityNameLabel.text = model.city
         let timeGap = Int(Date().timeIntervalSince(model.time!))
-        updatedTimeLabel.text = timeGap > 1 ? "Updated few seconds ago" : "Updated just now"
+        updatedTimeLabel.text = getLastUpdatedTimeDescription(seconds: timeGap)
         aqiValueLabel.text = "\(model.aqi)"
         let index = getIndexForAQI(aqi: model.aqi)
         let (color, width) = getColorForCurrentAQI(index: index)
@@ -56,6 +56,23 @@ class AQITableViewCell: UITableViewCell {
             color = UIColor.darkred
         }
         return (color, width < maxWidth - 10 ? width : maxWidth)
+    }
+    
+    func getLastUpdatedTimeDescription(seconds: Int) -> String {
+        var description = ""
+        switch seconds {
+        case 0...1:
+            description = "Updated just now"
+        case 2...60:
+            description = "Updated few seconds ago"
+        case 61...(60*60):
+            description = "Updated few minutes ago"
+        case (60*60)+1...(60*60*24):
+            description = "Updated few hours ago"
+        default:
+            description = "Updated few days ago"
+        }
+        return description
     }
 }
 
