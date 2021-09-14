@@ -96,6 +96,5 @@ class DetailViewController: UIViewController {
         progressView?.setProgress(progress: CGFloat(progressVal), animated: true)
         progressView?.title = "\(model?.aqi ?? 0) \n\(desc)"
     }
-    
 }
 
